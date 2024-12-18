@@ -17,4 +17,30 @@ Ta, a classe BattleState guarda a vida do jogador/inimigo e o indexpergunta é a
 
 ### Tela Vitória/Derrota :
 
-Antes, o projeto usava uma classe única chamada TextScreen, que exibia mensagens de vitória ou derrota, com base em boolean (dead). A mudança foi a adição da recompensa tela de vitória que mostra o item ganho (um orb especifico), e uma tela de derrota. Da p considerar um refinamento visual tbm. 
+Antes, o projeto usava uma classe única chamada TextScreen, que exibia mensagens de vitória ou derrota, com base em boolean (dead). A motivo pra criar as screens Victory/Defeat foi a adição da recompensa na  tela de vitória que mostra o item ganho (um orb especifico), e uma tela de derrota. Da p considerar um refinamento visual tbm, ja que antes era mais simples a tela.
+
+#### QuestionScreen1:
+As perguntas e respostas ficavam tudo na mesma classe, entao separei em QuestionRepository as perguntas, alternativas e respostas. O metódo de transiçao da tela tava duplicado sendo que fazia a mesma coisa, onde o metodo startScreenBattleTransition unificou o startScreenBattleTransition1 e startScreenBattleTransition2. Tava meio que uma bola de neve se quisesse criar outra batalha tinha que copiar a classe inventar mais um startScreenBattle3Transition e com as questoes junto só essa classe tava gigante.
+
+```java
+
+// ANTES
+private void startScreenBattle1Transition() {
+    BattleScreen1 battleScreenInstance = new BattleScreen1(game);
+    fadeScreen = new FadeScreen(game, fadeOut, this, battleScreenInstance);
+    game.setScreen(fadeScreen);
+}
+
+private void startScreenBattle2Transition() {
+    BattleScreen2 battleScreenInstance = new BattleScreen2(game);
+    fadeScreen = new FadeScreen(game, fadeOut, this, battleScreenInstance);
+    game.setScreen(fadeScreen);
+}
+```
+Atualizado :
+```java
+private void startScreenBattleTransition(Screen nextScreen) {
+    fadeScreen = new FadeScreen(game, fadeOut, this, nextScreen);
+    game.setScreen(fadeScreen);
+}
+```
