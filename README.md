@@ -44,3 +44,40 @@ private void startScreenBattleTransition(Screen nextScreen) {
     game.setScreen(fadeScreen);
 }
 ```
+
+##### Mudanças, considerações visuais...
+O sistema de HP, vida e tal era uma Label com número e gambiarrada com as coordenadas pra ficar no meio do asset do coração.
+Se o layout mudasse o numero ficava estatico lá e fora que se por exemplo o hp fosse de 3 digitos ja ia zoar o jeito que ficava.
+
+```java
+Label vidaAvatarLabel = new Label("" + vidaAvatar, style);
+Group vidaAvatarGroup = new Group();
+vidaAvatarGroup.addActor(heart1);
+vidaAvatarGroup.addActor(vidaAvatarLabel);
+vidaAvatarLabel.setPosition(heart1.getWidth() / 2 - vidaAvatarLabel.getWidth() / 2, heart1.getHeight() / 2 - vidaAvatarLabel.getHeight() / 2);
+vidaAvatarGroup.setPosition(avatarX + 40, avatarY);
+```
+**ISSO ERA SÓ PRA VIDA DO AVATAR**
+
+
+**ATUALIZADO:**
+```java
+Group vidaAvatarGroup = createHealthGroup(AssetUtils.heart, style, Math.max(0, BattleState.vidaAvatar), avatarX + 40, avatarY);
+Group vidaInimigoGroup = createHealthGroup(AssetUtils.heart, style, Math.max(0, BattleState.vidaInimigo), enemyX + 80, enemyY + 20);
+```
+**Método Auxiliar createHealthGroup:**
+```java
+
+private Group createHealthGroup(Texture heartTexture, Label.LabelStyle style, int health, float x, float y) {
+    Group group = new Group();
+    for (int i = 0; i < health; i++) {
+        Image heart = new Image(heartTexture);
+        heart.setPosition(x + i * 40, y);
+        group.addActor(heart);
+    }
+    return group;
+}
+```
+
+
+
