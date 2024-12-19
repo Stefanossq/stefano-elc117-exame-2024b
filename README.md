@@ -84,11 +84,21 @@ private Group createHealthGroup(Texture heartTexture, Label.LabelStyle style, in
 
 ![level_button_3](https://github.com/user-attachments/assets/042ee533-342a-4411-9882-c47ea8111634)
 
+### CODE FIXES DA VERSÃO ORIGINAL (Mensões honrosas):
+Gradle 1.7 já ta obsoleto, o próprio já ta avisando, o projeto todo ta com suporte a java 8 agora(Apesar de estarmos no 14 , eu acho).
+Não sei se o projeto original foi entregue numa versão não definitiva mas já de ínicio ao tentar buildar desktop os assets de som nao estavam declarados apesar de existirem.
+Dispose de elementos das questões por exemplo faziam com que multiplos cliques virassem bugs nas telas de batalha, fixed. 
 
 ### CONCLUSÃO:
 Detalhamento das mudanças foi feito em cada tópico, mas concluindo fiz refatorações nas classes BattleScreens unificando pra GenericBattleScreen, telas de vitoria/derrota, mudança na logica do armazenamento das perguntas  e transicao de tela na QuestionScreen1 e algumas mudanças no visual do jogo. Segue o Diagrama de classes atualizado :
 ![Exame2024bUML](https://github.com/user-attachments/assets/7b46d048-69ef-4b3a-9f8b-48d0da440bc6)
 
+### GAME DEMO:
+
+
+
+
+https://github.com/user-attachments/assets/f72b1bcc-30db-4ba3-b9b4-e8edf956cfad
 
 
 
