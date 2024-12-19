@@ -85,7 +85,9 @@ private Group createHealthGroup(Texture heartTexture, Label.LabelStyle style, in
 ![level_button_3](https://github.com/user-attachments/assets/042ee533-342a-4411-9882-c47ea8111634)
 
 
-### CONCLUSÃO![Exame2024bUML](https://github.com/user-attachments/assets/7b46d048-69ef-4b3a-9f8b-48d0da440bc6)
+### CONCLUSÃO:
+Detalhamento das mudanças foi feito em cada tópico, mas concluindo fiz refatorações nas classes BattleScreens unificando pra GenericBattleScreen, telas de vitoria/derrota, mudança na logica do armazenamento das perguntas  e transicao de tela na QuestionScreen1 e algumas mudanças no visual do jogo. Segue o Diagrama de classes atualizado :
+![Exame2024bUML](https://github.com/user-attachments/assets/7b46d048-69ef-4b3a-9f8b-48d0da440bc6)
 
 
 
